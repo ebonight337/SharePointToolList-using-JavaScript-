@@ -3,9 +3,15 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous">
 </script>
-<!-- HTMLモデル -->
-<!--<input type="button" name="test" onclick="expandHtml();" value="click!"> デバッグ用-->
-<div id="modalview"></div>
 
 <script>
 "use strict";
+
+var userid = "i:0#.f|membership|" + "sendie@hogehoge.onmicrosoft.com"
+if(userid){
+    SP.SOD.executeFunc ("clientpeoplepicker.js", "SPClientPeoplePicker", function(){
+        var objUserField = $("#[PeopleColumn]").parent ().parent ().children (1).find ("input[id$='ClientPeoplePicker_EditorInput']").get (0);
+        var objPeoplePicker = SPClientPeoplePicker.PickerObjectFromSubElement (objUserField);
+        objPeoplePicker.AddUserKeys (userid);
+    })
+}
