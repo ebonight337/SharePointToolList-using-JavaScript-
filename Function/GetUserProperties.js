@@ -18,7 +18,7 @@ function getUserProperties(){
 function onRequestSuccess(){
     var departmentproperty = personProperties.get_userProfileProperties()['Department']
     $("#Department").parent ().parent ().children (1).find ("input").val (decodeURI(departmentproperty));
-    var workPhone = fsw.plotvar.personProperties.get_userProfileProperties()['WorkPhone'];
+    var workPhone = personProperties.get_userProfileProperties()['WorkPhone'];
     $("#ExternalTel").parent ().parent ().children (1).find ("input").val (decodeURI(workPhone));
 }
 
