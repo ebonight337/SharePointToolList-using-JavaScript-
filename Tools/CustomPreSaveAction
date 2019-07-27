@@ -22,14 +22,12 @@ $(document).ready(function(){
 });
 
 // preSaveItem時に呼び出されるフォームの保存処理時にモーダルウィンドウを展開
-function PreSaveAction (arg){
-    if(!arg){
+function PreSaveAction (){
+    if(true){
         fsw.openform.expandHtml();
-        return false;
-    }else if(arg){
-        //保存ボタンと同じ処理
-        if (PreSaveItem()) return false;if (SPClientForms.ClientFormManager.SubmitClientForm('WPQ2')) return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions('ctl00$ctl30$g_a0ec374c_7436_4288_a262_edbc0a4f5105$ctl00$toolBarTbl$RightRptControls$ctl00$ctl00$diidIOSaveItem', "", true, "", "", false, true));
         return true;
+    }else{
+        return false
     }
 }
 
@@ -38,7 +36,6 @@ fsw.openform.modalClose = function (){
     let btn = document.getElementById('btn');
     let modal = document.getElementById('modal');
     modal.style.display = 'none';
-    PreSaveAction(true);
 }
 
 // 子ウィンドウのdocumentを読み込むまで待つための処理
@@ -55,8 +52,6 @@ fsw.openform.openWindow = async function(target){
         const childWindow1 = open(url, "_blank");
         await fsw.openform.waitForLoading(childWindow1);
     }
-    //以下コメントアウトを消すと、ボタンクリック時に自動的に保存される
-    //PreSaveAction(true);
 }
 
 // モーダルウィンドウ内のHTML
