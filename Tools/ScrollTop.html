@@ -1,0 +1,32 @@
+<p id="scrollPageTop"><a href="#">トップに戻る</a></p>
+
+<script>
+$(function(){
+    var scrollButton=$('#scrollPageTop');
+    // scroll
+    scrollButton.click(function(){
+        $('#s4-workspace').animate({scrollTop:0});
+        return false;
+    });
+});
+</script>
+
+<style>
+#scrollPageTop {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+}
+#scrollPageTop a {
+    z-index: 999;
+    padding: 8px 8px 8px 8px;
+    border-radius: 30px;
+    background-color: #e45e65;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+#scrollPageTop a:hover {
+    opacity: 0.7;
+}
+</style>
